@@ -18,7 +18,7 @@ depends: [
   "lwt"
 ]
 depopts: [
-  "tls"
+  "tls" {>= "0.15.0"}
   "lwt_ssl"
 ]
 synopsis: "Lwt + Unix support for gluten"
