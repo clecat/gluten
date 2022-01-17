@@ -93,7 +93,7 @@ module IO_loop = struct
   let start
       : type t fd.
         (module Gluten_async_intf.IO with type socket = fd)
-        -> (module Gluten.RUNTIME with type t = t)
+        -> (module Dream_gluten.RUNTIME with type t = t)
         -> t
         -> read_buffer_size:int
         -> fd
@@ -152,10 +152,10 @@ module Make_server (Io : Gluten_async_intf.IO) = struct
   let create_connection_handler
       ~read_buffer_size ~protocol connection _client_addr socket
     =
-    let connection = Gluten.Server.create ~protocol connection in
+    let connection = Dream_gluten.Server.create ~protocol connection in
     IO_loop.start
       (module Io)
-      (module Gluten.Server)
+      (module Dream_gluten.Server)
       connection
       ~read_buffer_size
       socket
@@ -169,14 +169,14 @@ module Make_server (Io : Gluten_async_intf.IO) = struct
       socket
     =
     let connection =
-      Gluten.Server.create_upgradable
+      Dream_gluten.Server.create_upgradable
         ~protocol
         ~create:create_protocol
         (request_handler client_addr)
     in
     IO_loop.start
       (module Io)
-      (module Gluten.Server)
+      (module Dream_gluten.Server)
       connection
       ~read_buffer_size
       socket
@@ -264,7 +264,7 @@ module Server = struct
 end
 
 module Make_client (Io : Gluten_async_intf.IO) = struct
-  module Client_connection = Gluten.Client
+  module Client_connection = Dream_gluten.Client
 
   type socket = Io.socket
 

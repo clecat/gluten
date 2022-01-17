@@ -62,16 +62,16 @@ module type Server = sig
 
   val create_upgradable_connection_handler
     :  read_buffer_size:int
-    -> protocol:'t Gluten.runtime
+    -> protocol:'t Dream_gluten.runtime
     -> create_protocol:(('reqd -> unit) -> 't)
-    -> request_handler:(addr -> 'reqd Gluten.Server.request_handler)
+    -> request_handler:(addr -> 'reqd Dream_gluten.Server.request_handler)
     -> addr
     -> socket
     -> unit Deferred.t
 
   val create_connection_handler
     :  read_buffer_size:int
-    -> protocol:'t Gluten.runtime
+    -> protocol:'t Dream_gluten.runtime
     -> 't
     -> addr
     -> socket
@@ -85,12 +85,12 @@ module type Client = sig
 
   val create
     :  read_buffer_size:int
-    -> protocol:'t Gluten.runtime
+    -> protocol:'t Dream_gluten.runtime
     -> 't
     -> socket
     -> t Deferred.t
 
-  val upgrade : t -> Gluten.impl -> unit
+  val upgrade : t -> Dream_gluten.impl -> unit
 
   val shutdown : t -> unit Deferred.t
 

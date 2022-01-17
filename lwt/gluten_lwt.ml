@@ -90,7 +90,7 @@ module IO_loop = struct
   let start
       : type t fd.
         (module IO with type socket = fd)
-        -> (module Gluten.RUNTIME with type t = t)
+        -> (module Dream_gluten.RUNTIME with type t = t)
         -> t
         -> read_buffer_size:int
         -> fd
@@ -155,7 +155,7 @@ module IO_loop = struct
 end
 
 module Server (Io : IO) = struct
-  module Server = Gluten.Server
+  module Server = Dream_gluten.Server
 
   type socket = Io.socket
 
@@ -195,7 +195,7 @@ module Server (Io : IO) = struct
 end
 
 module Client (Io : IO) = struct
-  module Client_connection = Gluten.Client
+  module Client_connection = Dream_gluten.Client
 
   type socket = Io.socket
 
