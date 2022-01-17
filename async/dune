@@ -1,5 +1,5 @@
 (library
- (name gluten_async)
+ (name dream_gluten_async)
  (public_name dream-gluten-async)
  (libraries
   async
@@ -11,4 +11,4 @@
    from
    (async_ssl -> ssl_io.real.ml)
    (!async_ssl -> ssl_io.dummy.ml)))
- (modules gluten_async gluten_async_intf ssl_io))
+ (modules dream_gluten_async gluten_async_intf ssl_io))

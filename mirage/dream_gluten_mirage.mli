@@ -31,7 +31,7 @@
  *---------------------------------------------------------------------------*)
 
 module Server (Flow : Mirage_flow.S) :
-  Gluten_lwt.Server with type socket = Flow.flow and type addr = unit
+  Dream_gluten_lwt.Server with type socket = Flow.flow and type addr = unit
 
 module Client (Flow : Mirage_flow.S) :
-  Gluten_lwt.Client with type socket = Flow.flow
+  Dream_gluten_lwt.Client with type socket = Flow.flow

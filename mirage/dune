@@ -1,5 +1,5 @@
 (library
- (name gluten_mirage)
+ (name dream_gluten_mirage)
  (public_name dream-gluten-mirage)
  (libraries faraday-lwt dream-gluten-lwt lwt mirage-flow conduit-mirage cstruct)
  (flags

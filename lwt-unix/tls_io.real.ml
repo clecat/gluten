@@ -35,7 +35,7 @@ open Lwt.Infix
 type descriptor = Tls_lwt.Unix.t
 
 module Io :
-  Gluten_lwt.IO with type socket = descriptor and type addr = Unix.sockaddr =
+  Dream_gluten_lwt.IO with type socket = descriptor and type addr = Unix.sockaddr =
 struct
   type socket = descriptor
 

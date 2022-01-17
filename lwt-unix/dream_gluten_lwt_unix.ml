@@ -32,7 +32,7 @@
 open Lwt.Infix
 
 module Io :
-  Gluten_lwt.IO
+  Dream_gluten_lwt.IO
     with type socket = Lwt_unix.file_descr
      and type addr = Unix.sockaddr = struct
   type socket = Lwt_unix.file_descr
@@ -78,10 +78,10 @@ module Io :
 end
 
 module Server = struct
-  include Gluten_lwt.Server (Io)
+  include Dream_gluten_lwt.Server (Io)
 
   module TLS = struct
-    include Gluten_lwt.Server (Tls_io.Io)
+    include Dream_gluten_lwt.Server (Tls_io.Io)
 
     let create_default ?alpn_protocols ~certfile ~keyfile =
       let make_tls_server =
@@ -91,7 +91,7 @@ module Server = struct
   end
 
   module SSL = struct
-    include Gluten_lwt.Server (Ssl_io.Io)
+    include Dream_gluten_lwt.Server (Ssl_io.Io)
 
     let create_default ?alpn_protocols ~certfile ~keyfile =
       let make_ssl_server =
@@ -102,17 +102,17 @@ module Server = struct
 end
 
 module Client = struct
-  include Gluten_lwt.Client (Io)
+  include Dream_gluten_lwt.Client (Io)
 
   module TLS = struct
-    include Gluten_lwt.Client (Tls_io.Io)
+    include Dream_gluten_lwt.Client (Tls_io.Io)
 
     let create_default ?alpn_protocols socket =
       Tls_io.make_client ?alpn_protocols socket
   end
 
   module SSL = struct
-    include Gluten_lwt.Client (Ssl_io.Io)
+    include Dream_gluten_lwt.Client (Ssl_io.Io)
 
     let create_default ?alpn_protocols socket =
       Ssl_io.make_default_client ?alpn_protocols socket

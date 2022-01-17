@@ -1,5 +1,5 @@
 (library
- (name gluten_lwt_unix)
+ (name dream_gluten_lwt_unix)
  (public_name dream-gluten-lwt-unix)
  (libraries
   faraday-lwt-unix
@@ -15,4 +15,4 @@
    from
    (tls.lwt -> tls_io.real.ml)
    (-> tls_io.dummy.ml)))
- (modules gluten_lwt_unix tls_io ssl_io))
+ (modules dream_gluten_lwt_unix tls_io ssl_io))

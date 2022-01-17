@@ -32,13 +32,13 @@
 
 module Server : sig
   include
-    Gluten_lwt.Server
+    Dream_gluten_lwt.Server
       with type socket = Lwt_unix.file_descr
        and type addr = Unix.sockaddr
 
   module TLS : sig
     include
-      Gluten_lwt.Server
+      Dream_gluten_lwt.Server
         with type socket = Tls_io.descriptor
          and type addr = Unix.sockaddr
 
@@ -53,7 +53,7 @@ module Server : sig
 
   module SSL : sig
     include
-      Gluten_lwt.Server
+      Dream_gluten_lwt.Server
         with type socket = Ssl_io.descriptor
          and type addr = Unix.sockaddr
 
@@ -69,10 +69,10 @@ end
 
 (* For an example, see [examples/lwt_get.ml]. *)
 module Client : sig
-  include Gluten_lwt.Client with type socket = Lwt_unix.file_descr
+  include Dream_gluten_lwt.Client with type socket = Lwt_unix.file_descr
 
   module TLS : sig
-    include Gluten_lwt.Client with type socket = Tls_io.descriptor
+    include Dream_gluten_lwt.Client with type socket = Tls_io.descriptor
 
     val create_default
       :  ?alpn_protocols:string list
@@ -81,7 +81,7 @@ module Client : sig
   end
 
   module SSL : sig
-    include Gluten_lwt.Client with type socket = Ssl_io.descriptor
+    include Dream_gluten_lwt.Client with type socket = Ssl_io.descriptor
 
     val create_default
       :  ?alpn_protocols:string list

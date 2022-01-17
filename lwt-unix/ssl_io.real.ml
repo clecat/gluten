@@ -35,7 +35,7 @@ open Lwt.Infix
 type descriptor = Lwt_ssl.socket
 
 module Io :
-  Gluten_lwt.IO with type socket = descriptor and type addr = Unix.sockaddr =
+  Dream_gluten_lwt.IO with type socket = descriptor and type addr = Unix.sockaddr =
 struct
   type socket = Lwt_ssl.socket
 

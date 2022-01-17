@@ -33,7 +33,7 @@
 open Lwt.Infix
 
 module Make_IO (Flow : Mirage_flow.S) :
-  Gluten_lwt.IO with type socket = Flow.flow and type addr = unit = struct
+  Dream_gluten_lwt.IO with type socket = Flow.flow and type addr = unit = struct
   type socket = Flow.flow
 
   type addr = unit
@@ -82,5 +82,5 @@ module Make_IO (Flow : Mirage_flow.S) :
       (fun exn -> shutdown flow >>= fun () -> Lwt.fail exn)
 end
 
-module Server (Flow : Mirage_flow.S) = Gluten_lwt.Server (Make_IO (Flow))
-module Client (Flow : Mirage_flow.S) = Gluten_lwt.Client (Make_IO (Flow))
+module Server (Flow : Mirage_flow.S) = Dream_gluten_lwt.Server (Make_IO (Flow))
+module Client (Flow : Mirage_flow.S) = Dream_gluten_lwt.Client (Make_IO (Flow))

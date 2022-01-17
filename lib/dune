@@ -1,4 +1,4 @@
 (library
- (name gluten)
+ (name dream_gluten)
  (public_name dream-gluten)
  (libraries bigstringaf faraday))
