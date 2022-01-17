@@ -1,6 +1,6 @@
 (library
  (name gluten_mirage)
- (public_name gluten-mirage)
- (libraries faraday-lwt gluten-lwt lwt mirage-flow conduit-mirage cstruct)
+ (public_name dream-gluten-mirage)
+ (libraries faraday-lwt dream-gluten-lwt lwt mirage-flow conduit-mirage cstruct)
  (flags
   (:standard -safe-string)))

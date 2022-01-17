@@ -1,11 +1,11 @@
 (library
  (name gluten_async)
- (public_name gluten-async)
+ (public_name dream-gluten-async)
  (libraries
   async
   core
   faraday-async
-  gluten
+  dream-gluten
   (select
    ssl_io.ml
    from

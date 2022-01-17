@@ -11,7 +11,7 @@ build: [
 ]
 depends: [
   "ocaml" {>= "4.03.0"}
-  "gluten" {= version}
+  "dream-gluten" {= version}
   "dune" {>= "1.0"}
   "lwt"
 ]
