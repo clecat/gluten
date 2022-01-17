@@ -1,9 +1,9 @@
 (library
  (name gluten_lwt_unix)
- (public_name gluten-lwt-unix)
+ (public_name dream-gluten-lwt-unix)
  (libraries
   faraday-lwt-unix
-  gluten-lwt
+  dream-gluten-lwt
   lwt.unix
   (select
    ssl_io.ml

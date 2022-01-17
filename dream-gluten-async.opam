@@ -11,8 +11,11 @@ build: [
 ]
 depends: [
   "ocaml" {>= "4.03.0"}
-  "gluten" {= version}
   "dune" {>= "1.0"}
-  "lwt"
+  "dream-gluten" {= version}
+  "faraday-async" {>= "0.7.2"}
+  "async" { >= "v0.14.0" }
+  "core" { >= "v0.14.0" }
 ]
-synopsis: "Lwt-specific runtime for gluten"
+depopts: ["async_ssl"]
+synopsis: "Async runtime for gluten"
